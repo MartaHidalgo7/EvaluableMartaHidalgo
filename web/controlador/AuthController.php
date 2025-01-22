@@ -18,7 +18,7 @@ class AuthController {
                 // Crear una sesión para el invitado, dependiendo de cómo manejes los usuarios
                 $_SESSION['user'] = 'guest'; 
                 // Redirigir a una página después de iniciar sesión como invitado
-                header('Location: index.php');
+                header('Location: templates/guest.php');
                 exit;
             } 
         }
