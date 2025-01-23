@@ -16,13 +16,14 @@ class User {
         return $stmt->fetch(PDO::FETCH_ASSOC);
     }
     
-    // Función para loguear como invitado
     public function guestLogin() {
-        // Simplemente asignamos un nombre de usuario fijo para el invitado
         return ['username' => 'Invitado', 'role' => 'guest'];
     }
     public function userLogin() {
-    // Simplemente asignamos un nombre de usuario fijo para el invitado
     return ['username' => 'Invitado', 'role' => 'user'];
     }
+
+    public function userAdmin() {
+        return ['username' => 'Invitado', 'role' => 'admin'];
+        }
 }

@@ -25,10 +25,20 @@ class AuthController {
 
                 setcookie('user_session', 'true', time() + 3600, "/", "", false, true); // Cookie para 1 hora
     
-                // Crear una sesión para el invitado, dependiendo de cómo manejes los usuarios
+                // Crear una sesión para el user, dependiendo de cómo manejes los usuarios
                 $_SESSION['user'] = 'user'; 
-                // Redirigir a una página después de iniciar sesión como invitado
+                // Redirigir a una página después de iniciar sesión como user
                 header('Location: templates/userMain.php');
+                exit;
+            } 
+            if (isset($_POST['admin']) && $_POST['admin'] == 'true') {
+
+                setcookie('admin_session', 'true', time() + 3600, "/", "", false, true); // Cookie para 1 hora
+    
+                // Crear una sesión para el admin, dependiendo de cómo manejes los usuarios
+                $_SESSION['admin'] = 'admin'; 
+                // Redirigir a una página después de iniciar sesión como admin
+                header('Location: templates/adminMain.php');
                 exit;
             } 
         }
@@ -54,6 +64,16 @@ class AuthController {
         session_destroy();
         // Eliminar cualquier cookie relacionada con la sesión de invitado si la existe
         setcookie('user_session', '', time() - 3600, "/"); // Eliminar la cookie del invitado si está configurada
+        
+        header('Location: index.php'); // Redirigir al usuario al inicio
+        exit;
+    }
+    public function logoutAdmin() {
+        session_start();
+        session_unset();
+        session_destroy();
+        // Eliminar cualquier cookie relacionada con la sesión de invitado si la existe
+        setcookie('admin_session', '', time() - 3600, "/"); // Eliminar la cookie del invitado si está configurada
         
         header('Location: index.php'); // Redirigir al usuario al inicio
         exit;
