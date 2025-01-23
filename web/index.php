@@ -22,6 +22,11 @@ if (isset($_GET['action'])) {
         $authController->logout();
     
     // Acción no válida
+    }
+    elseif ($action == 'logoutUser') {
+        $authController->logoutUser();
+    
+    // Acción no válida
     } else {
         echo "Acción no válida.";
     }

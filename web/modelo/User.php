@@ -21,4 +21,8 @@ class User {
         // Simplemente asignamos un nombre de usuario fijo para el invitado
         return ['username' => 'Invitado', 'role' => 'guest'];
     }
+    public function userLogin() {
+    // Simplemente asignamos un nombre de usuario fijo para el invitado
+    return ['username' => 'Invitado', 'role' => 'user'];
+    }
 }

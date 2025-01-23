@@ -14,6 +14,10 @@
         <input type="hidden" name="guest" value="true">
         <button type="submit">Entrar como Invitado</button>
     </form>
-     
+ 
+    <form action="index.php?action=login" method="POST">
+        <input type="hidden" name="user" value="true">
+        <button type="submit">Entrar como Usuario</button>
+    </form>    
 </body>
 </html>

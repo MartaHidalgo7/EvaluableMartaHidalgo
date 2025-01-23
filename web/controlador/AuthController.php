@@ -21,6 +21,16 @@ class AuthController {
                 header('Location: templates/guest.php');
                 exit;
             } 
+            if (isset($_POST['user']) && $_POST['user'] == 'true') {
+
+                setcookie('user_session', 'true', time() + 3600, "/", "", false, true); // Cookie para 1 hora
+    
+                // Crear una sesión para el invitado, dependiendo de cómo manejes los usuarios
+                $_SESSION['user'] = 'user'; 
+                // Redirigir a una página después de iniciar sesión como invitado
+                header('Location: templates/userMain.php');
+                exit;
+            } 
         }
     
         // Incluir la página de login si no es un POST
@@ -33,6 +43,17 @@ class AuthController {
         session_destroy();
         // Eliminar cualquier cookie relacionada con la sesión de invitado si la existe
         setcookie('guest_session', '', time() - 3600, "/"); // Eliminar la cookie del invitado si está configurada
+        
+        header('Location: index.php'); // Redirigir al usuario al inicio
+        exit;
+    }
+
+    public function logoutUser() {
+        session_start();
+        session_unset();
+        session_destroy();
+        // Eliminar cualquier cookie relacionada con la sesión de invitado si la existe
+        setcookie('user_session', '', time() - 3600, "/"); // Eliminar la cookie del invitado si está configurada
         
         header('Location: index.php'); // Redirigir al usuario al inicio
         exit;
