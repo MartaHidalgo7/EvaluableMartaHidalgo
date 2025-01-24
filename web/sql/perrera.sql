@@ -77,7 +77,9 @@ CREATE TABLE `usuarios` (
   `email` varchar(60) NOT NULL,
   `contraseña` varchar(50) NOT NULL,
   `rol` enum('invitado','usuario','administrador') NOT NULL,
-  `fecha_registro` datetime(6) NOT NULL
+  `fecha_registro` datetime(6) NOT NULL,
+  `imagen` varchar(255) DEFAULT NULL 
+
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
