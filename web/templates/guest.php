@@ -80,7 +80,7 @@
 </head>
 <body>
     <h1>Bienvenido a Refugio Patitas Invitado</h1>
-    <a href="#" class="register-link"><strong>REGISTRATE AQUÍ</strong></a>
+    <a href="form.php" class="register-link"><strong>REGISTRATE AQUÍ</strong></a>
     <div class="container">
         <div class="card">
             <img src="../media/perrito1.jpg" alt="Perrito 1">
