@@ -11,7 +11,7 @@ class Imagen {
     }
 
     public function obtenerImagenes() {
-        $query = "SELECT id FROM " . $this->table . " WHERE id = :id";
+        $query = "SELECT nombre FROM " . $this->table . " WHERE id = 1";
         $stmt = $this->conn->prepare($query);
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
